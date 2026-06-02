@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your daily calorie intake with this beautiful, easy-to-use calorie tracker. Set goals, log meals, and monitor your nutrition journey.">
+    <title>CalorieFlow — Smart Calorie Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-background">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <div id="app" class="app-container">
+        <!-- Header -->
+        <header id="app-header" class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon">🔥</span>
+                    <h1>CalorieFlow</h1>
+                </div>
+                <p class="header-date" id="header-date"></p>
+            </div>
+            <div class="header-right">
+                <button id="btn-settings" class="icon-btn" aria-label="Settings" title="Settings">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.32 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+                <button id="btn-history" class="icon-btn" aria-label="History" title="View History">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <!-- Calorie Ring Section -->
+            <section id="calorie-summary" class="calorie-summary">
+                <div class="ring-container">
+                    <svg class="progress-ring" viewBox="0 0 200 200">
+                        <defs>
+                            <linearGradient id="ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#6366f1"/>
+                                <stop offset="50%" style="stop-color:#a855f7"/>
+                                <stop offset="100%" style="stop-color:#ec4899"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="ring-bg" cx="100" cy="100" r="85" />
+                        <circle id="ring-progress" class="ring-fill" cx="100" cy="100" r="85" />
+                    </svg>
+                    <div class="ring-info">
+                        <span class="ring-calories" id="ring-calories">0</span>
+                        <span class="ring-label">of <span id="ring-goal">2000</span> kcal</span>
+                    </div>
+                </div>
+                <div class="macro-cards">
+                    <div class="macro-card" id="macro-remaining">
+                        <span class="macro-value" id="remaining-value">2000</span>
+                        <span class="macro-label">Remaining</span>
+                    </div>
+                    <div class="macro-card" id="macro-consumed">
+                        <span class="macro-value" id="consumed-value">0</span>
+                        <span class="macro-label">Consumed</span>
+                    </div>
+                    <div class="macro-card" id="macro-meals">
+                        <span class="macro-value" id="meals-value">0</span>
+                        <span class="macro-label">Meals</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Add Section -->
+            <section id="quick-add" class="quick-add-section">
+                <h2 class="section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    Log a Meal
+                </h2>
+                <form id="meal-form" class="meal-form" autocomplete="off">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="meal-name">Food / Meal</label>
+                            <input type="text" id="meal-name" placeholder="e.g. Grilled Chicken Salad" required>
+                        </div>
+                        <div class="input-group input-group-sm">
+                            <label for="meal-calories">Calories</label>
+                            <input type="number" id="meal-calories" placeholder="kcal" min="1" max="9999" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="meal-category">Category</label>
+                            <select id="meal-category">
+                                <option value="breakfast">🌅 Breakfast</option>
+                                <option value="lunch">☀️ Lunch</option>
+                                <option value="dinner">🌙 Dinner</option>
+                                <option value="snack">🍿 Snack</option>
+                                <option value="drink">🥤 Drink</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="btn-add-meal" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Add Meal
+                        </button>
+                    </div>
+                </form>
+                <!-- Quick Presets -->
+                <div class="presets">
+                    <span class="presets-label">Quick add:</span>
+                    <button class="preset-chip" data-name="Apple" data-cal="95" data-cat="snack">🍎 Apple <small>95</small></button>
+                    <button class="preset-chip" data-name="Banana" data-cal="105" data-cat="snack">🍌 Banana <small>105</small></button>
+                    <button class="preset-chip" data-name="Coffee" data-cal="5" data-cat="drink">☕ Coffee <small>5</small></button>
+                    <button class="preset-chip" data-name="Rice Bowl" data-cal="350" data-cat="lunch">🍚 Rice Bowl <small>350</small></button>
+                    <button class="preset-chip" data-name="Protein Shake" data-cal="220" data-cat="snack">🥛 Shake <small>220</small></button>
+                    <button class="preset-chip" data-name="Egg" data-cal="78" data-cat="breakfast">🥚 Egg <small>78</small></button>
+                </div>
+            </section>
+
+            <!-- Today's Meals -->
+            <section id="todays-meals" class="meals-section">
+                <h2 class="section-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Today's Log
+                    <span class="meal-count-badge" id="meal-count-badge">0</span>
+                </h2>
+                <div id="meals-list" class="meals-list">
+                    <div class="empty-state" id="empty-state">
+                        <span class="empty-icon">🍽️</span>
+                        <p>No meals logged yet today.</p>
+                        <p class="empty-sub">Add your first meal above to get started!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="modal-overlay" aria-hidden="true">
+            <div class="modal" role="dialog" aria-labelledby="settings-title">
+                <div class="modal-header">
+                    <h2 id="settings-title">⚙️ Settings</h2>
+                    <button id="btn-close-settings" class="icon-btn modal-close" aria-label="Close settings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="calorie-goal">Daily Calorie Goal (kcal)</label>
+                        <input type="number" id="calorie-goal" min="500" max="10000" value="2000">
+                    </div>
+                    <div class="setting-group">
+                        <label for="user-name">Your Name</label>
+                        <input type="text" id="user-name" placeholder="Enter your name">
+                    </div>
+                    <button id="btn-save-settings" class="btn btn-primary btn-full">Save Settings</button>
+                    <hr class="modal-divider">
+                    <button id="btn-clear-today" class="btn btn-danger btn-full">Clear Today's Log</button>
+                    <button id="btn-clear-all" class="btn btn-ghost btn-full">Reset All Data</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Modal -->
+        <div id="history-modal" class="modal-overlay" aria-hidden="true">
+            <div class="modal modal-lg" role="dialog" aria-labelledby="history-title">
+                <div class="modal-header">
+                    <h2 id="history-title">📊 History</h2>
+                    <button id="btn-close-history" class="icon-btn modal-close" aria-label="Close history">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Weekly Bar Chart -->
+                    <div class="chart-section">
+                        <h3 class="chart-title">Last 7 Days</h3>
+                        <div id="weekly-chart" class="weekly-chart"></div>
+                    </div>
+                    <div id="history-list" class="history-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast" aria-live="polite"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
