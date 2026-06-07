@@ -15,11 +15,11 @@
     --text-secondary: #a0a0c0;
     --text-muted: #6b6b8a;
 
-    --accent-primary: #6366f1;
-    --accent-secondary: #a855f7;
-    --accent-pink: #ec4899;
-    --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-    --accent-gradient-subtle: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 50%, rgba(236, 72, 153, 0.15) 100%);
+    --accent-primary: #3b82f6;
+    --accent-secondary: #22c55e;
+    --accent-teal: #14b8a6;
+    --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #22c55e 50%, #14b8a6 100%);
+    --accent-gradient-subtle: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(34, 197, 94, 0.15) 50%, rgba(20, 184, 166, 0.15) 100%);
 
     --color-success: #34d399;
     --color-warning: #fbbf24;
@@ -37,7 +37,7 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
-    --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.15);
+    --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.15);
 
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --transition-fast: 0.15s ease;
@@ -107,7 +107,7 @@ body {
 .bg-orb-3 {
     width: 300px;
     height: 300px;
-    background: var(--accent-pink);
+    background: var(--accent-teal);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -243,7 +243,7 @@ body {
     stroke-dasharray: 534.07;
     stroke-dashoffset: 534.07;
     transition: stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1);
-    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
 }
 
 .ring-info {
@@ -315,7 +315,7 @@ body {
 }
 
 #macro-meals .macro-value {
-    color: var(--accent-pink);
+    color: var(--accent-teal);
 }
 
 .macro-label {
@@ -413,7 +413,7 @@ body {
 .input-group input:focus,
 .input-group select:focus {
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
     background: rgba(0, 0, 0, 0.4);
 }
 
@@ -451,12 +451,12 @@ body {
 .btn-primary {
     background: var(--accent-gradient);
     color: white;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
     filter: brightness(1.1);
 }
 
@@ -761,7 +761,7 @@ body {
 
 .setting-group input:focus {
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 /* --- Weekly Chart --- */
